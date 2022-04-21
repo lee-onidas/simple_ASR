@@ -5,7 +5,7 @@ from tensorflow.keras.utils import to_categorical
 import numpy as np
 from tqdm import tqdm
 
-DATA_PATH = "./data/"
+DATA_PATH = "./raw_data/"
 
 
 # Input: Folder Path
@@ -18,7 +18,7 @@ def get_labels(path=DATA_PATH):
 
 # convert file to wav2mfcc
 # Mel-frequency cepstral coefficients
-def wav2mfcc(file_path, n_mfcc=20, max_len=11):
+def wav2mfcc(file_path=DATA_PATH, n_mfcc=20, max_len=11):
     wave, sr = librosa.load(file_path, mono=True, sr=None)
     #downsampling
     wave = wave[::3]
@@ -39,7 +39,7 @@ def wav2mfcc(file_path, n_mfcc=20, max_len=11):
 # Input: Folder path, maximum length, number of mfccs to extract
 # Output: numpy array file "*.npy" for each label
 def save_data_to_array(path=DATA_PATH, max_len=11, n_mfcc=20):
-    labels, _, _ = get_labels(path)
+    labels, _, _ = get_labels(path=DATA_PATH)
 
     for label in labels:
         # Init mfcc vectors
@@ -49,4 +49,4 @@ def save_data_to_array(path=DATA_PATH, max_len=11, n_mfcc=20):
         for wavfile in tqdm(wavfiles, "Saving vectors of label - '{}'".format(label)):
             mfcc = wav2mfcc(wavfile, max_len=max_len, n_mfcc=n_mfcc)
             mfcc_vectors.append(mfcc)
-        np.save('./processed_data/' + label + '.npy', mfcc_vectors)
+        np.save(label + '.npy', mfcc_vectors)
