@@ -1,10 +1,11 @@
-# Data analysis
-- Document here the project: simple_ASR
-- Description: Project Description
-- Data Source:
-- Type of analysis:
+# Simple Automatic Speech Recognition
+The aim of the project is to build a simple automatic speech recogintion model that can correctly classify the simple voice commands ```["up", "down" ,"left" , "right"]```
 
-Please document the project the better you can.
+
+# Data Source:
+<a href="https://www.kaggle.com/code/zakikurdya/commands-recognition-with-tensorflow/data">Kaggle Commands Recognition</a>
+
+
 
 # Startup the project
 
@@ -22,15 +23,15 @@ Unittest test:
 make clean install test
 ```
 
-Check for simple_ASR in gitlab.com/{group}.
+Check for simple_ASR in github.com/{username}.
 If your project is not set please add it:
 
-- Create a new project on `gitlab.com/{group}/simple_ASR`
+- Create a new project on `github.com/{username}/simple_ASR`
 - Then populate it:
 
 ```bash
-##   e.g. if group is "{group}" and project_name is "simple_ASR"
-git remote add origin git@github.com:{group}/simple_ASR.git
+##   e.g. if username is "{group}" and project_name is "simple_ASR"
+git remote add origin git@github.com:{username}/simple_ASR.git
 git push -u origin master
 git push -u origin --tags
 ```
@@ -46,7 +47,7 @@ simple_ASR-run
 
 # Install
 
-Go to `https://github.com/{group}/simple_ASR` to see the project, manage issues,
+Go to `https://github.com/lee-noidas/simple_ASR` to see the project, manage issues,
 setup you ssh public key, ...
 
 Create a python3 virtualenv and activate it:
@@ -59,7 +60,7 @@ deactivate; virtualenv -ppython3 ~/venv ; source ~/venv/bin/activate
 Clone the project and install it:
 
 ```bash
-git clone git@github.com:{group}/simple_ASR.git
+git clone git@github.com:lee-onidas/simple_ASR.git
 cd simple_ASR
 pip install -r requirements.txt
 make clean install test                # install and test
